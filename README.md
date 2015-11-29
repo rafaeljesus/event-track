@@ -1,5 +1,7 @@
 ## Event Track
 
+[ ![Codeship Status for rafaeljesus/event-track](https://codeship.com/projects/db5dd500-78d8-0133-a2b7-4ab273700aba/status?branch=master)](https://codeship.com/projects/118624)
+
 * Record any actions your system perform, along with any properties that describe the action.
 
 ## Built with
