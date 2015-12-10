@@ -7,16 +7,11 @@ const Promise = require('bluebird')
 
 const Track = Schema({
   channel: {type: String, default: ''},
-  context: {
-    ip: {type: String, default: ''},
-    userAgent: {type: String, default: ''}
-  },
   event: {type: String, default: ''},
-  createdBy: {},
+  context: {},
   properties: {},
   receivedAt: Date,
-  sentAt: Date,
-  timestamp: Date
+  sentAt: Date
 })
 
 Track.statics.search = function(options) {

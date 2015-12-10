@@ -4,6 +4,8 @@ const http = require('http')
   , app = require('../')
   , port = process.env.PORT || 3000
 
+require('../lib/mongo')
+
 http.globalAgent.maxSockets = Infinity
 http.createServer(app.callback())
 app.listen(port)
