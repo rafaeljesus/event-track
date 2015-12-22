@@ -6,8 +6,8 @@ const Promise = require('bluebird')
   , createQuery = require('./create.query')
 
 const Track = Schema({
-  channel: {type: String, default: ''},
-  event: {type: String, default: ''},
+  channel: String,
+  event: String,
   context: {},
   properties: {},
   receivedAt: Date,
@@ -16,9 +16,9 @@ const Track = Schema({
 
 Track.statics.search = function(options) {
   options || (options = {})
-  let PAGE_SIZE_LIMIT = 100
-    , page = options.page || 0
-    , pageSize = options.pageSize || 10
+  const PAGE_SIZE_LIMIT = 100
+  let page = options.page || 0
+  let pageSize = options.pageSize || 10
 
   if (page > 0) --page
   if (pageSize > PAGE_SIZE_LIMIT) pageSize = PAGE_SIZE_LIMIT
