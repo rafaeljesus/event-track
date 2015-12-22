@@ -1,6 +1,6 @@
 {
   "name": "event-track",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Record any actions your system perform, along with any properties that describe the action.",
   "main": "./index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   "dependencies": {
     "apidoc": "0.13.1",
     "bluebird": "3.0.5",
-    "bunyan": "^1.5.1",
+    "bunyan": "1.5.1",
     "debug": "2.2.0",
     "kcors": "1.0.1",
     "koa": "1.1.2",
@@ -34,6 +34,6 @@
     "supertest": "^1.1.0"
   },
   "engines": {
-    "node": "5.1.0"
+    "node": "5.3.0"
   }
 }
