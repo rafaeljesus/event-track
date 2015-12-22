@@ -1,24 +1,25 @@
 'use strict'
 
 const Promise = require('bluebird')
-  , mongoose = Promise.promisifyAll(require('mongoose'))
+  , mongoose = require('mongoose')
   , Schema = mongoose.Schema
   , createQuery = require('./create.query')
 
+Promise.promisifyAll(mongoose)
+
 const Track = Schema({
-  channel: {type: String, default: ''},
-  event: {type: String, default: ''},
+  event: String,
+  status: String,
   context: {},
   properties: {},
-  receivedAt: Date,
-  sentAt: Date
+  createdAt: Date
 })
 
 Track.statics.search = function(options) {
   options || (options = {})
-  let PAGE_SIZE_LIMIT = 100
-    , page = options.page || 0
-    , pageSize = options.pageSize || 10
+  const PAGE_SIZE_LIMIT = 100
+  let page = options.page || 0
+  let pageSize = options.pageSize || 10
 
   if (page > 0) --page
   if (pageSize > PAGE_SIZE_LIMIT) pageSize = PAGE_SIZE_LIMIT

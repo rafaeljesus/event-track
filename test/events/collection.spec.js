@@ -1,21 +1,21 @@
 'use strict'
 
 const chai = require('chai')
-  , Track = require('../../api/track/collection')
+  , Event = require('../../api/events/collection')
   , expect = chai.expect
 
-describe('Track:CollectionSpec', () => {
+describe('Event:CollectionSpec', () => {
 
-  afterEach(() => Track.removeAsync())
+  afterEach(() => Event.removeAsync())
 
   describe('.search', () => {
 
     beforeEach(() => {
       let data = require('./fixture')()
       return Promise.all([
-        Track.createAsync(data),
-        Track.createAsync(data),
-        Track.createAsync(data)
+        Event.createAsync(data),
+        Event.createAsync(data),
+        Event.createAsync(data)
       ])
     })
 
@@ -24,7 +24,7 @@ describe('Track:CollectionSpec', () => {
         page: 1,
         pageSize: 10
       }
-      return Track.
+      return Event.
         search(query).
         then(res => {
           expect(res.total).to.be.eq(3)

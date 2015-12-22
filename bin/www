@@ -1,12 +1,13 @@
-'use strict'
+#!/usr/bin/env node
 
 const http = require('http')
   , app = require('../')
+  , log = require('../lib/log')
   , port = process.env.PORT || 3000
-
-require('../lib/mongo')
 
 http.globalAgent.maxSockets = Infinity
 http.createServer(app.callback())
+
 app.listen(port)
-console.log(`Event Track API - port ${port}`)
+
+log.info(`Event Track API - port ${port}`)

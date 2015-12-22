@@ -1,20 +1,19 @@
+'use strict'
+
 const cluster = require('cluster')
   , CPUS = require('os').cpus()
+  , log = require('./lib/log')
 
 if (cluster.isMaster) {
 
+  require('./lib/db')
+
   CPUS.forEach(() => cluster.fork())
 
-  cluster.on('listening', worker => {
-    console.log('Worker %d connected', worker.process.pid)
-  })
-
-  cluster.on('disconnect', worker => {
-    console.log('Worker %d disconnect', worker.process.pid)
-  })
-
+  cluster.on('listening', worker => log.info(`Worker ${worker.process.pid} connected`))
+  cluster.on('disconnect', worker => log.info(`Worker ${worker.process.pid} disconnect`))
   cluster.on('exit', worker => {
-    console.log('Worker %d exited', worker.process.pid)
+    log.info(`Worker ${worker.process.pid} exited`)
     cluster.fork()
   })
 }
