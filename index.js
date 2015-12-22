@@ -7,6 +7,7 @@ const koa = require('koa')
   , helmet = require('koa-helmet')
   , cors = require('kcors')
   , homeAPI = require('./api/home/routes')
+  , eventAPI = require('./api/events/routes')
   , app = koa()
 
 app.use(kbody())
@@ -16,6 +17,7 @@ app.use(cors({
   methods: ['POST', 'GET']
 }))
 app.use(homeAPI.routes())
+app.use(eventAPI.routes())
 app.use(serve('public'))
 
 module.exports = app

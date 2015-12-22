@@ -1,17 +1,18 @@
 'use strict'
 
 const Promise = require('bluebird')
-  , mongoose = Promise.promisifyAll(require('mongoose'))
+  , mongoose = require('mongoose')
   , Schema = mongoose.Schema
   , createQuery = require('./create.query')
 
+Promise.promisifyAll(mongoose)
+
 const Track = Schema({
-  channel: String,
   event: String,
+  status: String,
   context: {},
   properties: {},
-  receivedAt: Date,
-  sentAt: Date
+  createdAt: Date
 })
 
 Track.statics.search = function(options) {
