@@ -1,6 +1,12 @@
 ## Event Track
 
-[ ![Codeship Status for rafaeljesus/event-track](https://codeship.com/projects/db5dd500-78d8-0133-a2b7-4ab273700aba/status?branch=master)](https://codeship.com/projects/118624) [![bitHound Overalll Score](https://www.bithound.io/github/rafaeljesus/event-track/badges/score.svg)](https://www.bithound.io/github/rafaeljesus/event-track) [![bitHound Dependencies](https://www.bithound.io/github/rafaeljesus/event-track/badges/dependencies.svg)](https://www.bithound.io/github/rafaeljesus/event-track/master/dependencies/npm) [![bitHound Dev Dependencies](https://www.bithound.io/github/rafaeljesus/event-track/badges/devDependencies.svg)](https://www.bithound.io/github/rafaeljesus/event-track/master/dependencies/npm) [![bitHound Code](https://www.bithound.io/github/rafaeljesus/event-track/badges/code.svg)](https://www.bithound.io/github/rafaeljesus/event-track)
+[ ![Codeship Status for rafaeljesus/event-track](https://codeship.com/projects/db5dd500-78d8-0133-a2b7-4ab273700aba/status?branch=master)](https://codeship.com/projects/118624)
+[![Node version](https://img.shields.io/node/v/latest-version.svg)](https://npmjs.org/package/event-track)
+[![NPM version](http://img.shields.io/npm/v/event-track.svg)](https://www.npmjs.org/package/event-track)
+[![bitHound Overalll Score](https://www.bithound.io/github/rafaeljesus/event-track/badges/score.svg)](https://www.bithound.io/github/rafaeljesus/event-track)
+[![bitHound Dependencies](https://www.bithound.io/github/rafaeljesus/event-track/badges/dependencies.svg)](https://www.bithound.io/github/rafaeljesus/event-track/master/dependencies/npm)
+[![bitHound Dev Dependencies](https://www.bithound.io/github/rafaeljesus/event-track/badges/devDependencies.svg)](https://www.bithound.io/github/rafaeljesus/event-track/master/dependencies/npm)
+[![bitHound Code](https://www.bithound.io/github/rafaeljesus/event-track/badges/code.svg)](https://www.bithound.io/github/rafaeljesus/event-track)
 
 * Record any actions your system perform, along with any properties that describe the action.
 
