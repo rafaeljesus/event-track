@@ -1,6 +1,6 @@
 {
   "name": "event-track",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Record any actions your system perform, along with any properties that describe the action.",
   "main": "./index.js",
   "scripts": {
