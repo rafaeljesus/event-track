@@ -4,17 +4,34 @@
 
 * Record any actions your system perform, along with any properties that describe the action.
 
+## Installation
+```bash
+npm install -g event-track
+```
+
+## Running tests
+To run a suite tests execute:
+```bash
+npm test
+```
+
 ## Built with
-- [nodejs](https://https://nodejs.org) Backend is a node-v.5.1.0.
+- [nodejs](https://https://nodejs.org) Backend is a node-v.5.3.0.
 - [koa](http://koajs.com) API is a KOA app. It respond to requests RESTfully in JSON.
 - [Mongodb](https://www.mongodb.com) Mongodb as a data store.
 
-## Running tests ###
-To run a suite tests execute:
-  npm test
+## Docker
+This repository has automated image builds on hub.docker.com. So you can also
+run:
+```
+$ docker-machine start default
+$ eval $(docker-machine env default)
+$ docker run -it -p 3000:80 rafaeljesus/event-track
+```
 
 ## API documentation
 We use source code comments to add documentation.
+
 You can browse an HTML documenation at `/apidoc/index.html`
 
 ## Contributing
