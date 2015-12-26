@@ -37,7 +37,7 @@ run:
 ```
 $ docker-machine start default
 $ eval $(docker-machine env default)
-$  docker run -it -e "NODE_ENV=development" -v "$(pwd)":/data --link mongo:mongo -w /data -p 3000:3000 rafaeljesus/event-track
+$ docker run -it -e "NODE_ENV=development" -v "$(pwd)":/data --link mongo:mongo -w /data -p 3000:3000 rafaeljesus/event-track
 $ curl `docker-machine ip default`:3000
 ```
 
