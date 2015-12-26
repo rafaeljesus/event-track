@@ -1,6 +1,8 @@
 ## Event Track
 
 [ ![Codeship Status for rafaeljesus/event-track](https://codeship.com/projects/db5dd500-78d8-0133-a2b7-4ab273700aba/status?branch=master)](https://codeship.com/projects/118624)
+[![Docker Image Size](https://img.shields.io/imagelayers/image-size/rafaeljesus/event-track/latest.svg)](https://hub.docker.com/r/rafaeljesus/event-track/)
+[![Docker Image Pulls](https://img.shields.io/docker/pulls/rafaeljesus/event-track.svg)](https://hub.docker.com/r/rafaeljesus/event-track/)
 [![NPM version](http://img.shields.io/npm/v/event-track.svg)](https://www.npmjs.org/package/event-track)
 [![bitHound Overalll Score](https://www.bithound.io/github/rafaeljesus/event-track/badges/score.svg)](https://www.bithound.io/github/rafaeljesus/event-track)
 [![bitHound Dependencies](https://www.bithound.io/github/rafaeljesus/event-track/badges/dependencies.svg)](https://www.bithound.io/github/rafaeljesus/event-track/master/dependencies/npm)
@@ -26,12 +28,17 @@ npm test
 - [Mongodb](https://www.mongodb.com) Mongodb as a data store.
 
 ## Docker
-This repository has automated image builds on hub.docker.com. So you can also
+This repository has automated image builds on hub.docker.com.
+
+Use [docker-mongodb](https://github.com/rafaeljesus/docker-mongodb) and run command described there
+
+Finally  run:
 run:
 ```
 $ docker-machine start default
 $ eval $(docker-machine env default)
-$ docker run -it -p 3000:80 rafaeljesus/event-track
+$  docker run -it -e "NODE_ENV=development" -v "$(pwd)":/data --link mongo:mongo -w /data -p 3000:3000 rafaeljesus/event-track
+$ curl `docker-machine ip default`:3000
 ```
 
 ## API documentation
