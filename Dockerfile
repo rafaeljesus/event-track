@@ -4,6 +4,6 @@ ADD . /event-track
 
 WORKDIR /event-track
 
-RUN npm i
+RUN npm i --production
 
 CMD ["npm", "start"]
