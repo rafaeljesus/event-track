@@ -33,12 +33,16 @@ This repository has automated image builds on hub.docker.com.
 Use [docker-mongodb](https://github.com/rafaeljesus/docker-mongodb) and run command described there
 
 Finally  run:
-run:
-```
+```bash
 $ docker-machine start default
 $ eval $(docker-machine env default)
 $ docker run -it -e "NODE_ENV=development" -v "$(pwd)":/data --link mongo:mongo -w /data -p 3000:3000 rafaeljesus/event-track
 $ curl `docker-machine ip default`:3000
+```
+
+## Run a command in the container
+```bash
+$ docker exec -it image_id bash
 ```
 
 ## API documentation
