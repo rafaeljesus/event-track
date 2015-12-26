@@ -1,6 +1,6 @@
 ## Event Track
 
-[ ![Codeship Status for rafaeljesus/event-track](https://codeship.com/projects/db5dd500-78d8-0133-a2b7-4ab273700aba/status?branch=master)](https://codeship.com/projects/118624)
+[![Codeship Status for rafaeljesus/event-track](https://codeship.com/projects/db5dd500-78d8-0133-a2b7-4ab273700aba/status?branch=master)](https://codeship.com/projects/118624)
 [![Docker Image Size](https://img.shields.io/imagelayers/image-size/rafaeljesus/event-track/latest.svg)](https://hub.docker.com/r/rafaeljesus/event-track/)
 [![Docker Image Pulls](https://img.shields.io/docker/pulls/rafaeljesus/event-track.svg)](https://hub.docker.com/r/rafaeljesus/event-track/)
 [![NPM version](http://img.shields.io/npm/v/event-track.svg)](https://www.npmjs.org/package/event-track)
