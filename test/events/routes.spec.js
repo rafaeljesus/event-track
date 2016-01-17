@@ -10,7 +10,7 @@ const supertest = require('supertest')
 
 describe('Event:RoutesSpec', () => {
 
-  afterEach(() => Event.removeAsync())
+  afterEach(() => Event.remove())
 
   describe('GET /v1/events/search', () => {
 
@@ -26,9 +26,9 @@ describe('Event:RoutesSpec', () => {
       beforeEach(() => {
         let data = require('./fixture')()
         return Promise.all([
-          Event.createAsync(assign(data, {event: 'purchases'})),
-          Event.createAsync(assign(data, {event: 'video'})),
-          Event.createAsync(assign(data, {event: 'integration'}))
+          Event.create(assign(data, {event: 'purchases'})),
+          Event.create(assign(data, {event: 'video'})),
+          Event.create(assign(data, {event: 'integration'}))
         ])
       })
 
@@ -50,9 +50,9 @@ describe('Event:RoutesSpec', () => {
       beforeEach(() => {
         let data = require('./fixture')()
         return Promise.all([
-          Event.createAsync(assign(data, {status: 'completed'})),
-          Event.createAsync(assign(data, {status: 'received'})),
-          Event.createAsync(assign(data, {status: 'error'}))
+          Event.create(assign(data, {status: 'completed'})),
+          Event.create(assign(data, {status: 'received'})),
+          Event.create(assign(data, {status: 'error'}))
         ])
       })
 
@@ -74,9 +74,9 @@ describe('Event:RoutesSpec', () => {
       beforeEach(() => {
         let data = require('./fixture')()
         return Promise.all([
-          Event.createAsync(assign(data, {createdAt: '2015-10-10'})),
-          Event.createAsync(assign(data, {createdAt: '2015-10-10'})),
-          Event.createAsync(assign(data, {createdAt: '2015-10-20'}))
+          Event.create(assign(data, {createdAt: '2015-10-10'})),
+          Event.create(assign(data, {createdAt: '2015-10-10'})),
+          Event.create(assign(data, {createdAt: '2015-10-20'}))
         ])
       })
 

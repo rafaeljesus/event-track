@@ -1,11 +1,8 @@
 'use strict'
 
-const Promise = require('bluebird')
-  , mongoose = require('mongoose')
+const mongoose = require('mongoose')
   , Schema = mongoose.Schema
   , createQuery = require('./create.query')
-
-Promise.promisifyAll(mongoose)
 
 const Track = Schema({
   event: String,
@@ -26,17 +23,17 @@ Track.statics.search = function(options) {
 
   const query = createQuery(options)
 
-  const find = this.
+  const search = this.
     find(query).
     sort('-receivedAt').
     limit(pageSize).
     skip(page * pageSize).
-    execAsync()
+    exec()
 
-  return Promise.props({
-    total: this.countAsync(query),
-    result: find
-  })
+  return Promise.all([
+    this.count(query),
+    search
+  ]).then(res => ({total: res[0], result: res[1]}))
 }
 
 module.exports = mongoose.model('tracks', Track)
