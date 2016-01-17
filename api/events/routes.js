@@ -47,13 +47,10 @@ router.
    */
   post('/v1/events', function *() {
     const event = this.request.body
-    yield Event.
-      createAsync(event).
-      bind(this).
-      then(res => {
-        this.status = 201
-        this.body = res._id
-      }).
+    this.status = 201
+    this.body = yield Event.
+      create(event).
+      then(res => res._id).
       catch(err => this.throw(422, err))
   }).
   /**
@@ -108,12 +105,9 @@ router.
    */
   get('/v1/events/search', function *() {
     const query = this.request.query
-    yield Event.
+    this.body = yield Event.
       search(query).
-      bind(this).
-      then(res => {
-        this.body = res
-      }).
+      then(res => res).
       catch(err => this.throw(412, err))
   })
 

@@ -6,16 +6,16 @@ const chai = require('chai')
 
 describe('Event:CollectionSpec', () => {
 
-  afterEach(() => Event.removeAsync())
+  afterEach(() => Event.remove())
 
   describe('.search', () => {
 
     beforeEach(() => {
       let data = require('./fixture')()
       return Promise.all([
-        Event.createAsync(data),
-        Event.createAsync(data),
-        Event.createAsync(data)
+        Event.create(data),
+        Event.create(data),
+        Event.create(data)
       ])
     })
 
