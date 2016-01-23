@@ -47,11 +47,13 @@ router.
    */
   post('/v1/events', function *() {
     const event = this.request.body
-    this.status = 201
-    this.body = yield Event.
-      create(event).
-      then(res => res._id).
-      catch(err => this.throw(422, err))
+    try {
+      const res = yield Event.create(event)
+      this.body = res._id
+      this.status = 201
+    } catch (err) {
+      this.throw(422, err)
+    }
   }).
   /**
    * @api {get} /v1/events/search Advanced Search
@@ -105,10 +107,11 @@ router.
    */
   get('/v1/events/search', function *() {
     const query = this.request.query
-    this.body = yield Event.
-      search(query).
-      then(res => res).
-      catch(err => this.throw(412, err))
+    try {
+      this.body = yield Event.search(query)
+    } catch (err) {
+      this.throw(412, err)
+    }
   })
 
 module.exports = router
