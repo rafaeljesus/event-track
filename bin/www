@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
 const http = require('http')
-  , app = require('../')
-  , log = require('../lib/log')
-  , port = process.env.PORT || 3000
+
+const app = require('../')
+const log = require('../lib/log')
+const port = process.env.PORT || 3000
 
 http.globalAgent.maxSockets = Infinity
 http.createServer(app.callback())

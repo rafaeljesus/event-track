@@ -1,8 +1,10 @@
 'use strict'
 
+const wrap = require('co').wrap
 const mongoose = require('mongoose')
-  , Schema = mongoose.Schema
-  , createQuery = require('./create.query')
+const Schema = mongoose.Schema
+
+const createQuery = require('./create.query')
 
 const Track = Schema({
   event: String,
@@ -12,7 +14,7 @@ const Track = Schema({
   createdAt: Date
 })
 
-Track.statics.search = function(options) {
+Track.statics.search = wrap(function *(options) {
   options || (options = {})
   const PAGE_SIZE_LIMIT = 100
   let page = options.page || 0
@@ -30,10 +32,10 @@ Track.statics.search = function(options) {
     skip(page * pageSize).
     exec()
 
-  return Promise.all([
-    this.count(query),
-    search
-  ]).then(res => ({total: res[0], result: res[1]}))
-}
+  return yield {
+    total: this.count(query),
+    result: search
+  }
+})
 
 module.exports = mongoose.model('tracks', Track)

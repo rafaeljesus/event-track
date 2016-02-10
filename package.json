@@ -14,6 +14,7 @@
   "dependencies": {
     "apidoc": "0.13.1",
     "bunyan": "1.5.1",
+    "co": "^4.6.0",
     "kcors": "1.0.1",
     "koa": "1.1.2",
     "koa-bodyparser": "2.0.1",

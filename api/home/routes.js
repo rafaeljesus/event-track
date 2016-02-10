@@ -1,7 +1,9 @@
 'use strict'
 
 const krouter = require('koa-router')
-  , router = krouter()
+const router = krouter()
+
+module.exports = router
 /**
  * @api {get} / API Status
  * @apiGroup Status
@@ -17,5 +19,3 @@ router.
     this.status = 200
     this.body = {status: 'Event Track API'}
   })
-
-module.exports = router

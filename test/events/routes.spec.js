@@ -1,16 +1,24 @@
 'use strict'
 
 const supertest = require('supertest')
-  , chai = require('chai')
-  , Event = require('../../api/events/collection')
-  , app = require('../../')
-  , request = supertest(app.listen())
-  , assign = Object.assign
-  , expect = chai.expect
+const chai = require('chai')
+const mocha = require('mocha')
+const coMocha = require('co-mocha')
+
+const Event = require('../../api/events/collection')
+const app = require('../../')
+
+const request = supertest(app.listen())
+const assign = Object.assign
+const expect = chai.expect
+
+coMocha(mocha)
 
 describe('Event:RoutesSpec', () => {
 
-  afterEach(() => Event.remove())
+  afterEach(function *() {
+    yield Event.remove()
+  })
 
   describe('GET /v1/events/search', () => {
 
@@ -23,13 +31,13 @@ describe('Event:RoutesSpec', () => {
 
     describe('.event', () => {
 
-      beforeEach(() => {
+      beforeEach(function *() {
         let data = require('./fixture')()
-        return Promise.all([
+        yield [
           Event.create(assign(data, {event: 'purchases'})),
           Event.create(assign(data, {event: 'video'})),
           Event.create(assign(data, {event: 'integration'}))
-        ])
+        ]
       })
 
       it('should search by event', done => {
@@ -47,13 +55,13 @@ describe('Event:RoutesSpec', () => {
 
     describe('.status', () => {
 
-      beforeEach(() => {
+      beforeEach(function *() {
         let data = require('./fixture')()
-        return Promise.all([
+        yield [
           Event.create(assign(data, {status: 'completed'})),
           Event.create(assign(data, {status: 'received'})),
           Event.create(assign(data, {status: 'error'}))
-        ])
+        ]
       })
 
       it('should search by status', done => {
@@ -71,13 +79,13 @@ describe('Event:RoutesSpec', () => {
 
     describe('.createdAt', () => {
 
-      beforeEach(() => {
+      beforeEach(function *() {
         let data = require('./fixture')()
-        return Promise.all([
+        yield [
           Event.create(assign(data, {createdAt: '2015-10-10'})),
           Event.create(assign(data, {createdAt: '2015-10-10'})),
           Event.create(assign(data, {createdAt: '2015-10-20'}))
-        ])
+        ]
       })
 
       it('should search by date range', done => {
