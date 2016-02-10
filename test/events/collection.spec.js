@@ -1,8 +1,13 @@
 'use strict'
 
 const chai = require('chai')
-  , Event = require('../../api/events/collection')
-  , expect = chai.expect
+const mocha = require('mocha')
+const coMocha = require('co-mocha')
+
+const Event = require('../../api/events/collection')
+const expect = chai.expect
+
+coMocha(mocha)
 
 describe('Event:CollectionSpec', () => {
 
@@ -10,26 +15,22 @@ describe('Event:CollectionSpec', () => {
 
   describe('.search', () => {
 
-    beforeEach(() => {
+    beforeEach(function *() {
       let data = require('./fixture')()
-      return Promise.all([
+      yield [
         Event.create(data),
         Event.create(data),
         Event.create(data)
-      ])
+      ]
     })
 
-    it('should search all events on page 1', () => {
-      const query = {
+    it('should search all events on page 1', function *() {
+      let res = yield Event.search({
         page: 1,
         pageSize: 10
-      }
-      return Event.
-        search(query).
-        then(res => {
-          expect(res.total).to.be.eq(3)
-          expect(res.result.length).to.be.eq(3)
-        })
+      })
+      expect(res.total).to.be.eq(3)
+      expect(res.result.length).to.be.eq(3)
     })
 
   })

@@ -1,8 +1,11 @@
 'use strict'
 
 const krouter = require('koa-router')
-  , router = krouter()
-  , Event = require('./collection')
+const router = krouter()
+
+const Event = require('./collection')
+
+module.exports = router
 
 router.
   /**
@@ -113,5 +116,3 @@ router.
       this.throw(412, err)
     }
   })
-
-module.exports = router
