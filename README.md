@@ -9,6 +9,8 @@
 [![bitHound Dev Dependencies](https://www.bithound.io/github/rafaeljesus/event-track/badges/devDependencies.svg)](https://www.bithound.io/github/rafaeljesus/event-track/master/dependencies/npm)
 [![bitHound Code](https://www.bithound.io/github/rafaeljesus/event-track/badges/code.svg)](https://www.bithound.io/github/rafaeljesus/event-track)
 
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/rafaeljesus/event-track)
+
 * Record any actions your system perform, along with any properties that describe the action.
 
 ## Installation

@@ -1,9 +1,6 @@
-'use strict'
-
-module.exports = options => {
-
+export default (options) => {
   let query = {}
-  const regex = field => new RegExp(field, 'i')
+  const regex = (field) => new RegExp(field, 'i')
 
   if (options.channel) {
     query['channel'] = {$regex: regex(options.channel)}
