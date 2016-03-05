@@ -1,6 +1,4 @@
-'use strict'
-
-module.exports = () => {
+export default function () {
   return {
     'event': 'purchases',
     'status': 'received',
@@ -17,7 +15,7 @@ module.exports = () => {
       'url': '/v1/purchases/123456',
       'item': {
         '_id': '20150101123457',
-        'price': 100,
+        'price': 100
       },
       'user': {
         '_id': '20150101123458',
