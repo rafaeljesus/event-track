@@ -4,10 +4,10 @@
   "description": "Record any actions your system perform, along with any properties that describe the action.",
   "main": "./index.js",
   "scripts": {
-    "start": "micro -p 3000 index.js",
+    "start": "micro index.js",
     "clean": "rm -rf build && mkdir build",
     "build": "npm run clean && babel --presets es2015,stage-2 --plugins transform-runtime --ignore node_modules,test . -d build",
-    "serve": "node --optimize_for_size --max_old_space_size=460 --gc_interval=100 index.js",
+    "serve": "micro --no-babel build/index.js",
     "test": " npm run lint && NODE_ENV=test ava",
     "lint": "standard --verbose | snazzy"
   },

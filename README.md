@@ -24,6 +24,12 @@ To start the serve execute:
 npm run build && npm run serve
 ```
 
+## Create a Event
+`curl -X POST localhost:3000/events \`
+`-d 'event=order_creted' \`
+`-d 'status=completed'`
+
+
 ## Built with
 - [nodejs](https://https://nodejs.org) Backend is a node-v.5.7.1.
 - [micro](https://github.com/zeithq/micro) API is exposed by micro. Async HTTP microservices
