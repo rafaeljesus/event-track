@@ -18,15 +18,15 @@
 npm install -g event-track
 ```
 
-## Running tests
-To run a suite tests execute:
+## Running server
+To start the serve execute:
 ```bash
-npm test
+npm run build && npm run serve
 ```
 
 ## Built with
-- [nodejs](https://https://nodejs.org) Backend is a node-v.5.3.0.
-- [koa](http://koajs.com) API is a KOA app. It respond to requests RESTfully in JSON.
+- [nodejs](https://https://nodejs.org) Backend is a node-v.5.7.1.
+- [micro](https://github.com/zeithq/micro) API is exposed by micro. Async HTTP microservices
 - [Mongodb](https://www.mongodb.com) Mongodb as a data store.
 
 ## Docker
@@ -46,11 +46,6 @@ $ curl `docker-machine ip default`:3000
 ```bash
 $ docker exec -it image_id bash
 ```
-
-## API documentation
-We use source code comments to add documentation.
-
-You can browse an HTML documenation at `/apidoc/index.html`
 
 ## Contributing
 - Fork it
