@@ -1,4 +1,4 @@
-import { json, send } from 'micro'
+import { json } from 'micro'
 import { parse } from 'url'
 
 import Event from './events/collection'

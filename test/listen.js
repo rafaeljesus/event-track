@@ -1,11 +1,10 @@
-import micro from 'micro'
+import srv from '../'
 
-export default async function listen (fn, opts) {
-  const srv = micro(fn, opts)
+export default async function () {
   return new Promise((resolve, reject) => {
     srv.listen((err) => {
       if (err) return reject(err)
-      const {port} = srv.address()
+      const { port } = srv.address()
       resolve(`http://localhost:${port}`)
     })
   })

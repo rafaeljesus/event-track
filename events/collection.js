@@ -22,8 +22,9 @@ Event.statics.search = async function (options) {
   if (pageSize > PAGE_SIZE_LIMIT) pageSize = PAGE_SIZE_LIMIT
 
   const q = query(options)
+
   const search = this.find(q)
-  .sort('-receivedAt')
+  .sort('-createdAt')
   .limit(pageSize)
   .skip(page * pageSize)
   .exec()
