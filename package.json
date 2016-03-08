@@ -2,12 +2,11 @@
   "name": "event-track",
   "version": "0.1.4",
   "description": "Record any actions your system perform, along with any properties that describe the action.",
-  "main": "./index.js",
   "scripts": {
-    "start": "micro index.js",
+    "start": "babel-node bin/www.js",
     "clean": "rm -rf build && mkdir build",
     "build": "npm run clean && babel --presets es2015,stage-2 --plugins transform-runtime --ignore node_modules,test . -d build",
-    "serve": "micro --no-babel build/index.js",
+    "serve": "node --optimize_for_size --max_old_space_size=460 --gc_interval=100 build/bin/www.js",
     "test": " npm run lint && NODE_ENV=test ava",
     "lint": "standard --verbose | snazzy"
   },

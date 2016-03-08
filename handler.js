@@ -1,14 +1,15 @@
 import { json, send } from 'micro'
+import { parse } from 'url'
 
 import Event from './events/collection'
-import './lib/db'
 
-export default async function (req, res) {
-  try {
-    const data = await json(req)
-    const track = await Event.create(data)
-    send(res, 200, track)
-  } catch (err) {
-    send(res, 422, {error: err})
-  }
+export async function create (req, res) {
+  const data = await json(req)
+  await Event.create(data)
+  return {created: true}
+}
+
+export async function search (req, res) {
+  const query = parse(req.url, true).query
+  return await Event.search(query)
 }

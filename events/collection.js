@@ -21,13 +21,14 @@ Event.statics.search = async function (options) {
   if (page > 0) --page
   if (pageSize > PAGE_SIZE_LIMIT) pageSize = PAGE_SIZE_LIMIT
 
-  const search = this.find(query(options))
+  const q = query(options)
+  const search = this.find(q)
   .sort('-receivedAt')
   .limit(pageSize)
   .skip(page * pageSize)
   .exec()
 
-  const res = await Promise.all([this.count(query), search])
+  const res = await Promise.all([this.count(q), search])
 
   return {
     total: res[0],
