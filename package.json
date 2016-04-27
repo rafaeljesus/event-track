@@ -3,10 +3,7 @@
   "version": "0.1.4",
   "description": "Record any actions your system perform, along with any properties that describe the action.",
   "scripts": {
-    "start": "babel-node bin/www.js",
-    "clean": "rm -rf build && mkdir build",
-    "build": "npm run clean && babel --presets es2015,stage-2 --plugins transform-runtime --ignore node_modules,test . -d build",
-    "serve": "node --optimize_for_size --max_old_space_size=460 --gc_interval=100 build/bin/www.js",
+    "start": "micro -p 3000 index.js",
     "test": " npm run lint && NODE_ENV=test ava",
     "lint": "standard --verbose | snazzy"
   },
@@ -19,6 +16,12 @@
     "parser": "babel-eslint"
   },
   "ava": {
+    "babel": {
+      "presets": [
+        "es2015",
+        "stage-2"
+      ]
+    },
     "files": [
       "test/*spec.js"
     ],
@@ -30,24 +33,22 @@
   },
   "dependencies": {
     "micro": "2.0.0",
-    "mongoose": "4.4.6"
+    "mongoose": "^4.4.13"
   },
   "devDependencies": {
-    "ava": "^0.12.0",
-    "babel-eslint": "^5.0.0",
-    "babel-plugin-transform-runtime": "^6.6.0",
+    "ava": "^0.14.0",
+    "babel-eslint": "^6.0.3",
     "babel-polyfill": "^6.6.1",
     "babel-preset-es2015": "^6.6.0",
     "babel-preset-stage-1": "^6.5.0",
     "babel-preset-stage-2": "^6.5.0",
-    "babel-runtime": "^6.6.1",
-    "estraverse-fb": "^1.3.1",
+    "babel-register": "^6.7.2",
     "pre-commit": "^1.1.2",
-    "request-promise": "^2.0.1",
+    "request-promise": "^3.0.0",
     "snazzy": "^3.0.0",
-    "standard": "^6.0.7"
+    "standard": "^7.0.0-beta.0"
   },
   "engines": {
-    "node": ">=0.12.0"
+    "node": ">=4.4.0"
   }
 }

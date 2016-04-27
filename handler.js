@@ -1,12 +1,12 @@
 import { json } from 'micro'
 import { parse } from 'url'
 
-import Event from './events/collection'
+import Event from './resources/events'
 
 export async function create (req, res) {
   const data = await json(req)
   await Event.create(data)
-  return {created: true}
+  return { created: true }
 }
 
 export async function search (req, res) {

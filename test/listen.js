@@ -1,6 +1,9 @@
-import srv from '../'
+import micro from 'micro'
+import fn from '../'
 
-export default async function () {
+const srv = micro(fn)
+
+export default () => {
   return new Promise((resolve, reject) => {
     srv.listen((err) => {
       if (err) return reject(err)
