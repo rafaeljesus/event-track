@@ -1,0 +1,13 @@
+machine:
+  node:
+    version: 6
+  services:
+    - docker
+deployment:
+  master:
+    branch: master
+    commands:
+      - docker build -t rafaeljesus/event-track .
+      - docker login -e $DOCKERHUB_EMAIL -u $DOCKERHUB_USER -p $DOCKERHUB_PASS
+      - docker tag rafaeljesus/event-track rafaeljesus/event-track:master
+      - docker push rafaeljesus/event-track:master
